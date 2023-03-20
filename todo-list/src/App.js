@@ -3,6 +3,7 @@ import add from './Test'
 import { useState } from "react"
 
 import './site.css'
+import photo from './images/photo.avif'
 export default function App()
 {
     let todoItems = [
@@ -52,6 +53,8 @@ export default function App()
         return searchFilter && filterFilter;
     }
     return (<div className="container">
+        <img src={photo} 
+        height={200} />
             <h1>My To Do Items</h1>
             Pending : {toDoList.filter(d => d.isComplete == false).length}
             <div className="input-group">

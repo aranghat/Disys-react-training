@@ -12,6 +12,7 @@ function ToDoItem({id
 
     function markAsComplete()
     {
+    
         //setCompleteState(true);
        // console.debug("Marked as complete: ");
        onMarkAsComplete(id);
@@ -30,7 +31,10 @@ function ToDoItem({id
                 className={isComplete 
                     ? "text-success" 
                     : "text-danger"}
-                >{isComplete ? "Completed" 
+                >{isComplete ? 
+                <span>
+                    <i className="bi bi-check"></i>Completed
+                </span> 
                 : "Pending"}</h3>
                 { 
                 !isComplete &&
