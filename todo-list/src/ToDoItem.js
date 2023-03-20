@@ -16,9 +16,18 @@ function ToDoItem({id
        onMarkAsComplete(id);
     }
 
-    return(<div>
-        <h2>{name}</h2>
-        <h3>{isComplete ? "Completed" 
+    return(<div className
+    ="list-group-item mb-2">
+        <h2
+        style={{textDecoration : 
+            isComplete ? "line-through" : "none"
+        }}
+        >{name}</h2>
+        <h3 
+        className={isComplete 
+            ? "text-success" 
+            : "text-danger"}
+        >{isComplete ? "Completed" 
         : "Pending"}</h3>
         { 
           !isComplete &&
@@ -30,6 +39,6 @@ function ToDoItem({id
 
         <button onClick={() => 
             onDeleteItem(id)}>Delete</button>
-            <hr />
+         
     </div>)
 }

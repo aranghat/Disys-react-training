@@ -14,6 +14,9 @@ export default function App()
 
     let [toDoItem,setToDoItem] = useState('');
     let [toDoList, setToDoList] = useState(todoItems);
+    let [search,setSearchTerm] = useState('');
+
+    
 
     function markAsComplete(id){
         let item = toDoList.find(d => d.id == id);
@@ -37,25 +40,50 @@ export default function App()
         console.debug(todoItems);
     }
 
-    return (<div>
+    function filterData(item){
+
+        return search.length > 0 ? item.name.indexOf(search) > -1
+                 : true;
+    }
+    return (<div className="container">
             <h1>My To Do Items</h1>
             Pending : {toDoList.filter(d => d.isComplete == false).length}
-
-            <div>
+            <div className="input-group">
                 <input type="text" 
+                className="form-control"
+                placeholder="Type the task you wish to add"
                 onChange={(event) => setToDoItem(event.target.value)}
                 />
-                <button type="button" onClick={handleAddToDoItem}>Add</button>
+                <button
+                 className="btn btn-primary"
+                type="button" onClick={handleAddToDoItem}>Add</button>
+            </div>
+            <div>
+                <input type="text"
+                className="form-control"
+                onChange={(event) => setSearchTerm(event.target.value)} />
+            </div>
+            <div>
+                <select className="form-select">
+                    <option value="All">All</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                </select>
             </div>
             {
-                toDoList.map(item => 
-                <ToDoItem 
-                id = {item.id}
-                name = {item.name}
-                isComplete = {item.isComplete}
-                onMarkAsComplete={markAsComplete}
-                onDeleteItem={deleteItemById}
-                  />)
+                toDoList.filter((item) => filterData(item))
+                        .map(item => 
+                    <div className="list-group" 
+                    key={item.id}>
+                         <ToDoItem 
+                                id = {item.id}
+                                name = {item.name}
+                                isComplete = {item.isComplete}
+                                onMarkAsComplete={markAsComplete}
+                                onDeleteItem={deleteItemById}
+                                />
+                    </div>
+               )
             }
         </div>)
 }
