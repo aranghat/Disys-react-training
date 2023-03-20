@@ -15,7 +15,7 @@ export default function App()
     let [toDoItem,setToDoItem] = useState('');
     let [toDoList, setToDoList] = useState(todoItems);
     let [search,setSearchTerm] = useState('');
-
+    let [filter, setFilter] = useState('All');
     
 
     function markAsComplete(id){
@@ -64,7 +64,9 @@ export default function App()
                 onChange={(event) => setSearchTerm(event.target.value)} />
             </div>
             <div>
-                <select className="form-select">
+                <select className="form-select"
+                onChange={(event) => setFilter(event.target.value)}
+                >
                     <option value="All">All</option>
                     <option value="Pending">Pending</option>
                     <option value="Completed">Completed</option>
