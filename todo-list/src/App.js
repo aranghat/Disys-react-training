@@ -42,8 +42,14 @@ export default function App()
 
     function filterData(item){
 
-        return search.length > 0 ? item.name.indexOf(search) > -1
+        let searchFilter = search.length > 0 ? item.name.indexOf(search) > -1
                  : true;
+
+        let filterFilter = filter != 'All' ? 
+                            filter == 'Pending' ? !item.isComplete :
+                            item.isComplete : true;
+        
+        return searchFilter && filterFilter;
     }
     return (<div className="container">
             <h1>My To Do Items</h1>
