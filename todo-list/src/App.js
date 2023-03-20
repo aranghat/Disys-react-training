@@ -13,17 +13,22 @@ export default function App()
     ]
 
     let [toDoItem,setToDoItem] = useState('');
+    let [toDoList, setToDoList] = useState(todoItems);
 
     /*function handleToDoItemChange(event){
         setToDoItem(event.target.value);
     }*/
 
     function handleAddToDoItem(){
-        todoItems.push({id: todoItems.length + 1, name: toDoItem, isComplete: false});
+        setToDoList([...toDoList
+                    ,{id: todoItems.length + 1, name: toDoItem, isComplete: false}]);
+        console.debug(todoItems);
     }
 
     return (<div>
             <h1>My To Do Items</h1>
+            Pending : {toDoList.filter(d => d.isComplete == false).length}
+
             <div>
                 <input type="text" 
                 onChange={(event) => setToDoItem(event.target.value)}
@@ -31,7 +36,7 @@ export default function App()
                 <button type="button" onClick={handleAddToDoItem}>Add</button>
             </div>
             {
-                todoItems.map(item => 
+                toDoList.map(item => 
                 <ToDoItem 
                 id = {item.id}
                 name = {item.name}
