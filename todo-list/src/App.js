@@ -2,7 +2,7 @@ import ToDoItem from "./ToDoItem"
 import add from './Test'
 import { useState } from "react"
 
-
+import './site.css'
 export default function App()
 {
     let todoItems = [
@@ -19,6 +19,12 @@ export default function App()
         let item = toDoList.find(d => d.id == id);
         item.isComplete = true;
         setToDoList([...toDoList]);
+    }
+
+    function deleteItemById(id){
+        var deletedArray = 
+        toDoList.filter(d => d.id != id);
+        setToDoList([...deletedArray]);
     }
 
     /*function handleToDoItemChange(event){
@@ -48,6 +54,7 @@ export default function App()
                 name = {item.name}
                 isComplete = {item.isComplete}
                 onMarkAsComplete={markAsComplete}
+                onDeleteItem={deleteItemById}
                   />)
             }
         </div>)

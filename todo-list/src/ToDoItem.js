@@ -3,7 +3,8 @@ export default
 function ToDoItem({id
                 ,name
                 ,isComplete,
-                onMarkAsComplete})
+                onMarkAsComplete
+            ,onDeleteItem})
 {
     //let [completeState, setCompleteState] = 
     //useState(isComplete);
@@ -26,6 +27,9 @@ function ToDoItem({id
             >
             Mark Complete</button>
         }
+
+        <button onClick={() => 
+            onDeleteItem(id)}>Delete</button>
             <hr />
     </div>)
 }
