@@ -2,23 +2,25 @@ import { useState } from "react";
 export default 
 function ToDoItem({id
                 ,name
-                ,isComplete})
+                ,isComplete,
+                onMarkAsComplete})
 {
-    let [completeState, setCompleteState] = 
-    useState(isComplete);
+    //let [completeState, setCompleteState] = 
+    //useState(isComplete);
 
     function markAsComplete()
     {
-        setCompleteState(true);
-        console.debug("Marked as complete: ");
+        //setCompleteState(true);
+       // console.debug("Marked as complete: ");
+       onMarkAsComplete(id);
     }
 
     return(<div>
         <h2>{name}</h2>
-        <h3>{completeState ? "Completed" 
+        <h3>{isComplete ? "Completed" 
         : "Pending"}</h3>
         { 
-          !completeState &&
+          !isComplete &&
             <button type="button"
             onClick={markAsComplete}
             >
