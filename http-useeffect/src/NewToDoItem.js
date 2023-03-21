@@ -1,7 +1,7 @@
 import { useState } from "react";
 import  axios  from "axios";
 
-export default function NewToDoItem(){
+export default function NewToDoItem(props){
     let [todo,setToDo] = useState({
                                     name : "",
                                     dueDate : undefined,
@@ -9,7 +9,9 @@ export default function NewToDoItem(){
                                 });
     function handleOnSave(){
        axios.post("http://localhost:8080/todos",todo)
-            .then((response) => { console.log("Todo created successfully");})
+            .then((response) => { 
+                 props.onAdd(response.data);    
+                console.log("Todo created successfully");})
             .catch((error) => {console.error(error)});
     }
     return (
