@@ -7,6 +7,7 @@ import axios from "axios";
 export default function App(){
   
     let [todos,setTodos] = useState([]);
+    let  [selected,setSelectedItem] = useState({});
     //Pull existing todolist
     useEffect(() => {
         axios.get("http://localhost:8080/todos")
@@ -49,10 +50,11 @@ export default function App(){
     return (
         <div className="container">
             <NewToDoItem onAdd={onItemAdd} />
-
+            <input type="text" value={selected.name} className="forms-control" />
+            <input type="checkbox" checked={selected.completed}  />
             <ul className="list-group">
                 {todos.map((todo) => 
-                    <li className="list-group-item" key={todo.id}>
+                    <li onClick={() => setSelectedItem(todo)} className="list-group-item" key={todo.id}>
                         <div className="row">
                             <div className="col">{todo.name}</div>
                             <div className="col">{todo.completed ? "Completed" : "Pending"}</div>
