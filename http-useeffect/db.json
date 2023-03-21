@@ -21,7 +21,7 @@
     {
       "name": "TEst 2",
       "dueDate": "2023-03-21T15:58",
-      "completed": false,
+      "completed": true,
       "id": 5
     }
   ]
