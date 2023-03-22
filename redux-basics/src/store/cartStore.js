@@ -8,11 +8,11 @@ export const cartStore = createSlice({
     reducers: {
         addToCart: (state, action) => {
             let product = action.payload;
-            this.state.cartItems.push(product);    
+            state.cartItems.push(product);    
         },
         removeFromCart: (state, action) => {
             let productId = action.payload;
-            this.state.cartItems = this.state.cartItems.filter(
+            state.cartItems = state.cartItems.filter(
                 (item) => item.id != productId
             );
         }
