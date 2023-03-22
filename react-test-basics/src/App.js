@@ -5,19 +5,23 @@ import { useState } from 'react';
 function App() {
 
   let [heading,setHeading] = useState("Today's Tasks");
+  let [topics,setTopics] = useState([
+    "Learn React",
+    "Master React",
+    "Explore the full React Library",
+    "Build many React apps",
+
+  ]);
 
   return (
     <div className="App">
        <h1 role='heading'>{heading}</h1>
-       <ul>
-          <li>Learn React</li>
-          <li>Master React</li>
-          <li>Explore the full React Library</li>
-          <li>Build many React apps</li>
+       <ul className='list-group'>
+          { topics.map((item) =>  <li>{item}</li>)}
+          
        </ul>
-
-      <button type='button' onClick={() =>
-           setHeading("Tomorrows's Tasks")}>Set Heading</button>
+      <button type='button' id="btnLastElement" onClick={()=> setTopics([...topics.shift()])}></button>
+      
 
     </div>
   );
