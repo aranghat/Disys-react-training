@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux"
+import Product from "../components/product";
 
 export default function ProductListPage() {
 
@@ -8,7 +9,7 @@ export default function ProductListPage() {
         <div className="container">
             <div className="row">
                 {products.map(product => (
-                    <h2>{product.name}</h2>
+                    <Product key={product.id} product={product}></Product>
                 ))}
             </div>
         </div>
