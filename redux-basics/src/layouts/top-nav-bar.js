@@ -1,16 +1,30 @@
+import { Link } from "react-router-dom";
+
 export default function TopNavigationBar(){
     return(
-        <nav className="navbar navbar-light">
-            <div className="navbar-brand"></div>
+        <nav className="navbar navbar-expand bg-light border-bottom">
+           <div className="container-fluid">
+           <div className="navbar-brand"></div>
             <div className="navbar-menu">
 
             </div>
-            <ul className="nav-bar">
-                <li className="nav-item">Home</li>
-                <li className="nav-item">Cart</li>
-                <li className="nav-item">Orders</li>
-                <li className="nav-item">Login</li>
-            </ul>
+            <div class="ms-auto me-auto">
+                <ul className="navbar-nav">
+                    <li className="nav-item">
+                        <Link to="/" class="nav-link active mx-3"><i className="bi bi-house me-1"></i>Home</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/cart" class="nav-link active mx-3"><i className="bi bi-cart me-1"></i>Cart</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/orders" class="nav-link active mx-3"><i className="bi bi-bag-check me-1"></i>Orders</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/login" class="nav-link active mx-3"><i className="bi bi-person me-1"></i>Login</Link>
+                    </li>
+                </ul>
+            </div>
+           </div>
         </nav>
     )
 }
