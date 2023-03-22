@@ -16,16 +16,16 @@ export default function TopNavigationBar(){
             <div class="ms-auto me-auto">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <Link to="/" class="nav-link active mx-3"><i className="bi bi-house me-1"></i>Home</Link>
+                        <Link to="/" className="nav-link active mx-3"><i className="bi bi-house me-1"></i>Home</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/cart" class="nav-link active mx-3"><i className="bi bi-cart me-1"></i>Cart <span className="badge bg-danger">{totalItems()}</span></Link>
+                        <Link to="/cart" className="nav-link active mx-3"><i className="bi bi-cart me-1"></i>Cart <span className="badge bg-danger">{totalItems()}</span></Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/orders" class="nav-link active mx-3"><i className="bi bi-bag-check me-1"></i>Orders</Link>
+                        <Link to="/orders" className="nav-link active mx-3"><i className="bi bi-bag-check me-1"></i>Orders</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/login" class="nav-link active mx-3"><i className="bi bi-person me-1"></i>Login</Link>
+                        <Link to="/login" className="nav-link active mx-3"><i className="bi bi-person me-1"></i>Login</Link>
                     </li>
                 </ul>
             </div>
