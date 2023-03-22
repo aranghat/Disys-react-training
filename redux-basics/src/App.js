@@ -1,6 +1,6 @@
 
 import NumberGuess from './NumberGuessComponent';
-import GuessResult from './GuessResult';
+import GuessResult from './Temp/GuessResult';
 
 function App() {
   return (
