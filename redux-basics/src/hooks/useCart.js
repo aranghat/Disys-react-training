@@ -1,19 +1,25 @@
 import { useSelector } from "react-redux";
 
-export default function useCart({})
+export function useCart({})
 {
     let cart = useSelector(state => state.cart);
 
     const totalItems = () => cart.cartItems.length;
     function totalTax()
-    {
-        let totalAmount = cart.cartItems.reduce((d,total) => total + (d.price * .18));
-        return totalAmount;
+    { 
+        let ta = totalAmount();
+        return ta * .18;
+
     }
 
     function totalAmount(){
-        let totalAmount = cart.cartItems.reduce((d,total) => total += d.price);
-        return totalAmount;
+        let t = 0;
+        for(var p of cart.cartItems)
+        {
+            t += p.price;
+        }
+
+        return t;
     }
 
     function netAmount()
@@ -21,5 +27,5 @@ export default function useCart({})
         return totalTax() + totalAmount();
     }
 
-    return [totalItems,totalTax,totalAmount,netAmount];
+    return [totalItems,totalTax,totalAmount,netAmount]
 }

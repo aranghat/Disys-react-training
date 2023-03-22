@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import {useCart} from '../hooks/useCart'
 
 export default function TopNavigationBar(){
 
-    let cart = useSelector(state => state.cart);
+    let [totalItems] = useCart({});
 
     return(
         <nav className="navbar navbar-expand bg-light border-bottom">
@@ -18,7 +19,7 @@ export default function TopNavigationBar(){
                         <Link to="/" class="nav-link active mx-3"><i className="bi bi-house me-1"></i>Home</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/cart" class="nav-link active mx-3"><i className="bi bi-cart me-1"></i>Cart <span className="badge bg-danger">{cart.cartItems.length}</span></Link>
+                        <Link to="/cart" class="nav-link active mx-3"><i className="bi bi-cart me-1"></i>Cart <span className="badge bg-danger">{totalItems()}</span></Link>
                     </li>
                     <li className="nav-item">
                         <Link to="/orders" class="nav-link active mx-3"><i className="bi bi-bag-check me-1"></i>Orders</Link>
