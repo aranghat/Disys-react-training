@@ -4,7 +4,7 @@ export default function LoginPage()
 {
  
     const {register, handleSubmit, formState: { errors,dirtyFields }} 
-    = useForm({mode : "onBlur"});
+    = useForm({mode : "onChange"});
 
     function onFormSubmit(data)
     {
