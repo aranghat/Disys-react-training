@@ -1,14 +1,14 @@
+import { Route } from "react-router-dom";
+import TopNavigationBar from "./layouts/top-nav-bar";
+import ProductListPage from "./pages/productlistpage";
 
-import NumberGuess from './NumberGuessComponent';
-import GuessResult from './Temp/GuessResult';
+
 
 function App() {
   return (
-    <div className="App">
-       <div style={{display : "inline-block"}}>
-        <NumberGuess />
-        <GuessResult />
-       </div>
+    <div>
+        <TopNavigationBar></TopNavigationBar>
+        <Route path="/" exact component={ProductListPage}></Route>
     </div>
   );
 }

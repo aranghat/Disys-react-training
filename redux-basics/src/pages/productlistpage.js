@@ -1,5 +1,16 @@
+import { useSelector } from "react-redux"
+
 export default function ProductListPage() {
+
+    let products = useSelector(state => state.products.products);
+
     return (
-        <h1>Products</h1>
+        <div className="container">
+            <div className="row">
+                {products.map(product => (
+                    <h2>{product.name}</h2>
+                ))}
+            </div>
+        </div>
     )
 }

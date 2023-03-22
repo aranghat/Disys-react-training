@@ -18,3 +18,6 @@ export const cartStore = createSlice({
         }
     }
 });
+
+export const { addToCart, removeFromCart } = cartStore.actions;
+export default cartStore.reducer;
